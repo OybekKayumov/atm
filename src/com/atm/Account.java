@@ -24,8 +24,8 @@ public class Account {
 
         //* add to holder and bank lists
         //! NOT COPY OF OBJECT, BUT THE SAME OBJECT
-        holder.addAccount(this);
-        theBank.addAccount(this);
+        //holder.addAccount(this);
+        //theBank.addAccount(this);
     }
 
     /**

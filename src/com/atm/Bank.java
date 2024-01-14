@@ -127,4 +127,9 @@ public class Bank {
         return null;
     }
 
+    //* get the name of the bank
+    public String getName() {
+        return this.name;
+    }
+
 }

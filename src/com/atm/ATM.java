@@ -72,7 +72,7 @@ public class ATM {
 
         //* user menu
         do {
-            System.out.printf("Welcome %s, what would you like to do?",
+            System.out.printf("Welcome %s, what would you like to do?\n",
                     theUser.getFirstName());
             System.out.println("  1) Show account transaction history");
             System.out.println("  2) Withdrawal");
@@ -102,6 +102,9 @@ public class ATM {
                 break;
             case 4:
                 ATM.transferFunds(theUser, sc);
+                break;
+            case 5:
+                sc.nextLine();
                 break;
         }
 
@@ -143,7 +146,7 @@ public class ATM {
         //* get the account to transfer from
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" +
-                    "to transfer from: ");
+                    "to transfer from: ", theUser.numAccounts());
             fromAcct = sc.nextInt()-1;
 
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts()) {
@@ -156,7 +159,7 @@ public class ATM {
         //* get the account to transfer to
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" +
-                    "to transfer to: ");
+                    "to transfer to: ", theUser.numAccounts());
             toAcct = sc.nextInt()-1;
 
             if (toAcct < 0 || toAcct >= theUser.numAccounts()) {
@@ -202,7 +205,7 @@ public class ATM {
         //* get the account to transfer from
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" +
-                    "to transfer from: ");
+                    "to withdraw from: ", theUser.numAccounts());
             fromAcct = sc.nextInt()-1;
 
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts()) {
@@ -213,7 +216,7 @@ public class ATM {
 
         //* get the amount to transfer
         do {
-            System.out.printf("Enter the amount to transfer (max $%.02f): $",
+            System.out.printf("Enter the amount to withdraw (max $%.02f): $",
                     acctBal);
             amount = sc.nextDouble();
 
@@ -230,7 +233,7 @@ public class ATM {
         sc.nextLine();
 
         //* get a memo
-        System.out.println("Enter a memo: ");
+        System.out.print("Enter a memo: ");
         memo = sc.nextLine();
 
         // do the withdrawal
@@ -248,7 +251,7 @@ public class ATM {
         //* get the account to transfer from
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" +
-                    "to transfer from: ");
+                    "to deposit in: ", theUser.numAccounts());
             toAcct = sc.nextInt()-1;
 
             if (toAcct < 0 || toAcct >= theUser.numAccounts()) {
@@ -265,18 +268,15 @@ public class ATM {
 
             if (amount < 0) {
                 System.out.println("Amount must be greater than zero.");
-            } else if (amount > acctBal) {
-                System.out.printf("Amount must be greater than\n" +
-                        "balance of $%.o2f\n", acctBal);
             }
 
-        } while (amount < 0 || amount > acctBal);
+        } while (amount < 0);
 
         //* gobble up rest of previous input
         sc.nextLine();
 
         //* get a memo
-        System.out.println("Enter a memo: ");
+        System.out.print("Enter a memo: ");
         memo = sc.nextLine();
 
         // do the withdrawal

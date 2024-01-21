@@ -94,4 +94,14 @@ public class User {
     public int numAccounts() {
         return this.accounts.size();
     }
+
+    //* Print transaction history for a particular account
+    public void printAcctTransHistory(int acctIdx) {
+        this.accounts.get(acctIdx).printTransHistory();
+    }
+
+    //* get the balance of a particular account
+    public double getAcctBalance(int acctIdx) {
+        return this.accounts.get(acctIdx).getBalance();
+    }
 }

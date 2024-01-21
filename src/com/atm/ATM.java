@@ -101,7 +101,7 @@ public class ATM {
                 ATM.depositFunds(theUser, sc);
                 break;
             case 4:
-                ATM.transerGunds(theUser, sc);
+                ATM.transerFunds(theUser, sc);
                 break;
         }
 
@@ -129,5 +129,28 @@ public class ATM {
 
         //* print the transaction history
         theUser.printAcctTransHistory(theAcct);
+    }
+
+    //*
+    public static void transerFunds(User theUser, Scanner sc) {
+
+        //* init
+        int fromAcct;
+        int toAcct;
+        double amount;
+        double acctBal;
+
+        //* get the account to transfer from
+        do {
+            System.out.printf("Enter the number (1-%d) of the account\n" +
+                    "to transfer from: ");
+            fromAcct = sc.nextInt()-1;
+
+            if (fromAcct < 0 || fromAcct >= theUser.numAccounts()) {
+                System.out.println("Invalid account. Please try again.");
+            }
+        } while (fromAcct < 0 || fromAcct >= theUser.numAccounts());
+
+        acctBal = theUser.getAcctBalance(fromAcct);
     }
 }

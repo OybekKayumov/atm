@@ -74,4 +74,9 @@ public class User {
 
         return false;
     }
+
+    //* return the user's first name
+    public String getFirstName() {
+        return this.firstName;
+    }
 }

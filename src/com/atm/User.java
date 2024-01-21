@@ -104,4 +104,14 @@ public class User {
     public double getAcctBalance(int acctIdx) {
         return this.accounts.get(acctIdx).getBalance();
     }
+
+    //* get the UUID od a particular account
+    public String getAcctUUID(int acctIdx) {
+        return this.accounts.get(acctIdx).getUUID();
+    }
+
+    //*
+    public void addAcctTransaction(int acctIdx, double amount, String memo) {
+        this.accounts.get(acctIdx).addTransaction(amount, memo);
+    }
 }

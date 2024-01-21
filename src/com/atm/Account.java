@@ -74,4 +74,11 @@ public class Account {
 
         System.out.println();
     }
+
+    //* add a new transaction in this account
+    public void addTransaction(double amount, String memo) {
+        //* create new transaction object and add it to our list
+        Transaction newTrans = new Transaction(amount, memo, this);
+        this.transactions.add(newTrans);
+    }
 }

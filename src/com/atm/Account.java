@@ -49,7 +49,7 @@ public class Account {
             return String.format("%s : $%.02f : %s",
                     this.uuid, balance, this.name);
         } else {
-            return String.format("%s : $(%.02f)k : %s",
+            return String.format("%s : $(%.02f) : %s",
                     this.uuid, balance, this.name);
         }
     }
@@ -68,7 +68,7 @@ public class Account {
     public void printTransHistory() {
         System.out.printf("\nTransaction history for account %s\n", this.uuid);
 
-        for (int t = this.transactions.size() -1; t >= 0; t--) {
+        for (int t = this.transactions.size()-1; t >= 0; t--) {
             System.out.println(this.transactions.get(t).getSummaryLine());
         }
 

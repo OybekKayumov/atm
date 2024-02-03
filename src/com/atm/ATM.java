@@ -57,7 +57,6 @@ public class ATM {
             }
         } while (authUser == null); //* continue looping until successful login
 
-        //
         return authUser;
     }
 
@@ -83,7 +82,7 @@ public class ATM {
             System.out.println("Enter choice: ");
             choice = sc.nextInt();
 
-            if (choice < 1|| choice > 5) {
+            if (choice < 1 || choice > 5) {
                 System.out.println("Invalid choice. Please choose 1-5");
             }
         } while (choice < 1 || choice > 5);
@@ -177,7 +176,7 @@ public class ATM {
                 System.out.println("Amount must be greater than zero.");
             } else if (amount > acctBal) {
                 System.out.printf("Amount must be greater than\n" +
-                        "balance of $%.o2f\n", acctBal);
+                        "balance of $%.02f.\n", acctBal);
             }
 
         } while (amount < 0 || amount > acctBal);
@@ -186,9 +185,9 @@ public class ATM {
         theUser.addAcctTransaction(fromAcct, -1*amount,
                 String.format("Transfer to account %s",
                         theUser.getAcctUUID(toAcct)));
-        theUser.addAcctTransaction(fromAcct, amount,
+        theUser.addAcctTransaction(toAcct, amount,
                 String.format("Transfer to account %s",
-                        theUser.getAcctUUID(toAcct)));
+                        theUser.getAcctUUID(fromAcct)));
 
 
     }
@@ -236,7 +235,7 @@ public class ATM {
         System.out.print("Enter a memo: ");
         memo = sc.nextLine();
 
-        // do the withdrawal
+        //* do the withdrawal
         theUser.addAcctTransaction(fromAcct, -1*amount, memo);
     }
 
@@ -279,7 +278,7 @@ public class ATM {
         System.out.print("Enter a memo: ");
         memo = sc.nextLine();
 
-        // do the withdrawal
+        //* do the withdrawal
         theUser.addAcctTransaction(toAcct, amount, memo);
     }
 }

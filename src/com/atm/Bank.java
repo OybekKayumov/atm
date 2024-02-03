@@ -33,7 +33,7 @@ public class Bank {
             //* generate the number
             uuid = "";
             for (int c = 0; c < len; c++) {
-                uuid += ((Integer)rng.nextInt()).toString();
+                uuid += ((Integer)rng.nextInt(10)).toString();
             }
 
             //* check to make sure it's unique
@@ -66,7 +66,7 @@ public class Bank {
             //* generate the number
             uuid = "";
             for (int c = 0; c < len; c++) {
-                uuid += ((Integer)rng.nextInt()).toString();
+                uuid += ((Integer)rng.nextInt(10)).toString();
             }
 
             //* check to make sure it's unique
@@ -113,7 +113,7 @@ public class Bank {
     //* if they're valid
     public User userLogin(String userID, String pin) {
 
-        // searsh through list of users
+        // search through list of users
         for (User u :this.users) {
 
             //* check user ID is correct

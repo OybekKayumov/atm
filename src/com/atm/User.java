@@ -33,7 +33,7 @@ public class User {
         //* get a new, unique id for user
         this.uuid = theBank.getNewUserUUID();
 
-        //* create ampty list of accounts
+        //* create empty list of accounts
         this.accounts = new ArrayList<Account>();
 
         //* print log message
